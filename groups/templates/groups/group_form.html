@@ -1,0 +1,24 @@
+{% extends "groups/group_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block group_content %}
+<h4>Создать группу</h4>
+        <!-- Content -->
+        <div class="container">
+            <!--Grid row-->
+            <div class="row mt-5">
+                <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+
+                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                    <form action="{% url 'groups:create' %}" method="post" id="groupForm">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <input type="submit" class="btn btn-primary btn-large" value="Создать">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    {% block head_block %}
+    {% endblock %}
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css"/>
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/docs/latest/css/bootstrap.min.css"/>
+    <style>
+        .change-color-div{
+        background-color: #4B0082;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Navbar -->
+    <!--<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">-->
+    <!--<div class="container">-->
+    <!--<a class="navbar-brand" href="#">-->
+    <!--<strong>MDB</strong>-->
+    <!--</a>-->
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"-->
+    <!--aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent-7">-->
+    <!--<ul class="navbar-nav mr-auto">-->
+    <!--<li class="nav-item active">-->
+    <!--<a class="nav-link" href="#">Home-->
+    <!--<span class="sr-only">(current)</span>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--<a class="nav-link" href="#">Link</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--<a class="nav-link" href="#">Profile</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<form class="form-inline">-->
+    <!--<div class="md-form my-0">-->
+    <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#">Navbar</a>-->
+
+    <!--<div class="collapse navbar-collapse" id="navbarTogglerDemo03">-->
+    <!--<ul class="navbar-nav mr-auto mt-2 mt-lg-0">-->
+    <!--<li class="nav-item active">-->
+    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--<a class="nav-link" href="#">Link</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<form class="form-inline my-2 my-lg-0">-->
+    <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</nav>-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: #008080;">
+        <div class="container">
+            {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+            <a class="navbar-brand" href="{% url 'receipts:list' %}">Рецепты</a>
+            <a class="navbar-brand" href="#">Блоги</a>
+            <a class="navbar-brand" href="{% url 'posts:create' %}">Посты</a>
+            <a class="navbar-brand" href="{% url 'groups:all' %}">Группы</a>
+            <a class="navbar-brand" href="{% url 'groups:all' %}">Создать группу</a>
+
+            <a class="navbar-brand" href="{% url 'home' %}">Профиль</a>
+            <a class="btn btn-primary" href="{% url 'accounts:logout' %}">Sign Out</a>
+            {% else %}
+            <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+            <a class="navbar-brand" href="{% url 'receipts:list' %}">Рецепты</a>
+            <a class="btn btn-primary" href="{% url 'accounts:signup' %}">Sign Up</a>
+            <a class="btn btn-primary" href="{% url 'accounts:login' %}">Sign In</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% csrf_token %}
+    {% block body_block %}
+    {% endblock %}
+
+    <!--<div class="view">-->
+    <!--<div class="mask rgba-gradient align-items-center">-->
+    <!--&lt;!&ndash; Content &ndash;&gt;-->
+    <!--<div class="container">-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--<div class="row mt-5">-->
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">-->
+
+    <!--<hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">-->
+    <!--<h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur-->
+    <!--adipisicing elit. Rem repellendus quasi fuga-->
+    <!--nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea-->
+    <!--dolor molestiae, quisquam iste, maiores. Nulla.</h6>-->
+    <!--&lt;!&ndash;<a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-md-6 col-xl-5 mb-4">-->
+    <!--&lt;!&ndash;Form&ndash;&gt;-->
+    <!--<div class="card wow fadeInRight" data-wow-delay="0.3s">-->
+    <!--<div class="card-body">-->
+    <!--&lt;!&ndash;Header&ndash;&gt;-->
+
+    <!--&lt;!&ndash;Body&ndash;&gt;-->
+    <!--<div class="md-form">-->
+    <!--<i class="fas fa-user prefix black-text active"></i>-->
+    <!--<input type="text" id="form3" class="black-text form-control">-->
+    <!--<label for="form3" class="active">Your name</label>-->
+    <!--</div>-->
+    <!--<div class="md-form">-->
+    <!--<i class="fas fa-envelope prefix black-text active"></i>-->
+    <!--<input type="email" id="form2" class="black-text form-control">-->
+    <!--<label for="form2" class="active">Your email</label>-->
+    <!--</div>-->
+    <!--<div class="md-form">-->
+    <!--<i class="fas fa-lock prefix black-text active"></i>-->
+    <!--<input type="password" id="form4" class="black-text form-control">-->
+    <!--<label for="form4" class="active">Your password</label>-->
+    <!--</div>-->
+    <!--<div class="text-center mt-4">-->
+    <!--<button class="btn btn-indigo">Sign up</button>-->
+    <!--<hr class="hr-light mb-3 mt-4">-->
+    <!--&lt;!&ndash;<div class="inline-ul text-center">&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="p-2 m-2 tw-ic">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="fab fa-twitter white-text"></i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="p-2 m-2 li-ic">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="fab fa-linkedin-in white-text"> </i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="p-2 m-2 ins-ic">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="fas fa-instagram white-text"> </i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/.Form&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Content &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Mask & flexbox options&ndash;&gt;-->
+    <!--</div>-->
+    <!-- Full Page Intro -->
+</header>
+
+<script src="{% static 'javaScript/main1.js' %}"></script>
+<!--<script src="{% static 'javaScript/main.js' %}"></script>-->
+</body>
+</html>

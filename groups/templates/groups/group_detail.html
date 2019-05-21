@@ -1,0 +1,43 @@
+{% extends "groups/group_base.html" %}
+{% block pregroup %}
+<h1>{{group.name}}</h1>
+<h2>Колличество участников: {{group.members.count}}</h2>
+<div class="container">
+    <!--Grid row-->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+
+            <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="content">
+                {% if user in group.members.all %}
+                <a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning">
+                    <span class="gliphicon glyphicon-remove-circle"></span>
+                    Покинуть
+                </a>
+                {% else %}
+                <a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning">
+                    <span class="gliphicon glyphicon-remove-circle"></span>
+                    Присоединиться
+                </a>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block group_content %}
+
+
+<div class="col-md-8">
+    {% if group.posts.count == 0 %}
+    <h2>В этой группе еще нет постов</h2>
+    {% else %}
+    {% for post in group.post.all %}
+    {% include "posts/_post.html" %}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

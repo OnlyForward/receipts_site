@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+{% endblock %}
+{% block body_block %}
+<h1>Delete {{receipt_delete.title }}?</h1>
+<div class="container">
+    <!--Grid row-->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+
+            <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Delete">
+                <a href="{% url 'receipts:detail' pk=receipt_delete.pk%} ">Отмена</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

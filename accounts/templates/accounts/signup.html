@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+{% endblock %}
+{% block body_block %}
+
+<div class="view">
+    <div class="mask rgba-gradient align-items-center">
+        <!-- Content -->
+        <div class="container">
+            <!--Grid row-->
+            <div class="row mt-5">
+                <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+
+                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-success">Рег</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

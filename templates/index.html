@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block head_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+{% endblock %}
+{% block body_block %}
+    <div class="view">
+        <div class="mask rgba-gradient align-items-center">
+            <!-- Content -->
+            <div class="container">
+                <!--Grid row-->
+                <div class="row mt-5">
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+
+                        <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                        <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">
+                            Как много времени вы тратите на поиск подходящих рецептов к ужину или застолью,
+                            вычитывая их в различных кулинарных блогах? Зачастую выбор интересных идей к приходу гостей или семейному ужину оказывается дольше,
+                            чем сама готовка! Мы решили облегчить вам задачу и собрать самые хитрые советы и подборки лучших рецептов в блоге о еде.
+                            Наши повара не только потрясающе готовят, но и с радостью поделятся с вами своими кулинарными секретами и подсказками на все случаи жизни.
+                        Также вы сможете создать свои собственные рецепты и поделиться ими с другими пользоватлеями.С помощью данного сайта вы сможете повысить свой навык
+                        кулинарии. Удачи !!!</h6>
+                        <!--<a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>-->
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-6 col-xl-5 mb-4">
+                        <!--Form-->
+                        <form>
+                            {% csrf_token %}
+                        <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                            <div class="card-body">
+                                <!--Header-->
+
+                                <!--Body-->
+                                <div class="md-form">
+                                    <i class="fas fa-user prefix black-text active"></i>
+                                    <input type="text" name="form.username" id="form3" class="black-text form-control">
+                                    <label for="form3" class="active">Your name</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fas fa-envelope prefix black-text active"></i>
+                                    <input type="email" id="form2" name=name="form.email" class="black-text form-control">
+                                    <label for="form2" class="active">Your email</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fas fa-lock prefix black-text active"></i>
+                                    <input type="password" id="form4" name=name="form.password1" class="black-text form-control">
+                                    <label for="form4" class="active">Your password</label>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-indigo">Sign up</button>
+                                    <hr class="hr-light mb-3 mt-4">
+                                    <!--<div class="inline-ul text-center">-->
+                                        <!--<a class="p-2 m-2 tw-ic">-->
+                                            <!--<i class="fab fa-twitter white-text"></i>-->
+                                        <!--</a>-->
+                                        <!--<a class="p-2 m-2 li-ic">-->
+                                            <!--<i class="fab fa-linkedin-in white-text"> </i>-->
+                                        <!--</a>-->
+                                        <!--<a class="p-2 m-2 ins-ic">-->
+                                            <!--<i class="fas fa-instagram white-text"> </i>-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+                            </form>
+                        <!--/.Form-->
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Intro -->
+{% endblock %}
